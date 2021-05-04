@@ -1,0 +1,11 @@
+{
+  "name": "node-random-color-generator",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/TeoVti/node-random-color-generator.git",
+  "author": "Teofil-Ioan Vartolomei <teo.vty@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "lodash": "^4.17.21"
+  }
+}
