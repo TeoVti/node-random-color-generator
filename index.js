@@ -1,24 +1,21 @@
 const chalk = require('chalk');
 const randomColor = require('randomcolor');
 
-const color = randomColor();
-const str = `
-#############################
-#############################
-#############################
-#####                   #####
-#####     ${color}       #####
-#####                   #####
-#############################
-#############################
-#############################`;
+const hueInput = process.argv[2];
+const brightness = process.argv[3];
+const color = randomColor({
+  luminosity: brightness,
+  hue: hueInput,
+});
 
-if (process.argv[3] && process.argv[3] === 'dark') {
-  console.log(chalk.keyword(process.argv[2]).dim(str));
-} else if (process.argv[3] && process.argv[3] === 'light') {
-  console.log(chalk.keyword(process.argv[2]).bold(str));
-} else if (!process.argv[2]) {
-  console.log(chalk.hex(color)(str));
-} else {
-  console.log(chalk.keyword(process.argv[2])(str));
-}
+const string = `###############################
+###############################
+###############################
+#####                     #####
+#####        ${color}      #####
+#####                     #####
+###############################
+###############################
+###############################`;
+
+console.log(chalk.hex(color).bold(string));
